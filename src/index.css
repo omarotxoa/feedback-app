@@ -28,6 +28,10 @@ header {
   padding: 0 20px;
 }
 
+ul {
+  list-style: none;
+}
+
 .card {
   background-color: #fff;
   color: #333;
@@ -42,14 +46,25 @@ header {
   color: #fff;
 }
 
+.card h2 {
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 30px 0 40px;
+}
+
+.rating li,
 .num-display {
-  position: absolute;
-  top: -10px;
-  left: -10px;
+  position: relative;
+  background: #f4f4f4;
   width: 50px;
   height: 50px;
-  background: #ff6a95;
-  color: #fff;
   padding: 10px;
   text-align: center;
   border-radius: 50%;
@@ -58,13 +73,44 @@ header {
   transition: 0.3s;
 }
 
-.close {
+.rating li label {
   position: absolute;
-  top: 10px;
-  right: 20px;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
   cursor: pointer;
-  background: none;
-  border: none;
+}
+
+.rating li:hover,
+.num-display {
+  background: #ff6a95;
+  color: #fff;
+}
+
+.num-display {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+}
+
+.feedback-stats {
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+[type='radio'] {
+  opacity: 0;
+}
+
+[type='radio']:checked ~ label {
+  background: #ff6a95;
+  color: #fff;
 }
 
 .input-group {
@@ -83,6 +129,15 @@ input {
 
 input:focus {
   outline: none;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
 }
 
 .btn {
@@ -117,4 +172,22 @@ input:focus {
 .btn:disabled:hover {
   transform: scale(1);
   opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .rating li {
+    margin: 10px 3px;
+  }
+
+  .rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 30px 0 40px;
+  }
+
+  .input-group input {
+    width: 80%;
+  }
 }
